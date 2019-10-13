@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import s from './Sidebar.css';
+import './Sidebar.css';
 
 import Home from '../Home/Home';
 import About from '../About/About';
