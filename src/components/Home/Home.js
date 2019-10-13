@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PieChartUsersState from '../PieChartUsersState/PieChartUsersState';
+import PieChartCouponCodesStatus from '../PieChartCouponCodesStatus/PieChartCouponCodesStatus';
 
 class Home extends Component {
 
@@ -8,9 +10,12 @@ class Home extends Component {
 
   render() {
     return (
-        <div>
+        <div className="container">
           <legend style={{ padding: "10x" }} >Home</legend>
-          <h2>Home</h2>
+          <div className="row">
+            <PieChartUsersState/>
+            <PieChartCouponCodesStatus/>
+          </div>
         </div>
     );
   }
