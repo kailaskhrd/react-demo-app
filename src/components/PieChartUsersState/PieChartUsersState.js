@@ -38,7 +38,6 @@ const options = {
 }
 
 class PieChartUsersState extends Component {
-
   render() {
     return (
       <div className="col-lg-5 col-sm-12" style={{ backgroundColor: '#FAFAFA', margin:'10px' }}>

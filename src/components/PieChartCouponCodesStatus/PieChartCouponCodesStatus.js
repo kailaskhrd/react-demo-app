@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import {Pie} from 'react-chartjs-2';
 
 const data = {
-  labels: [
-    'Pending',
-    'Otp Verified',
-  ],
+  labels:['Unused','Used'],
   datasets: [{
     data: [300, 500],
     backgroundColor: [
@@ -32,6 +29,19 @@ const options = {
 }
 
 class PieChartCouponCodesStatus extends Component {
+
+  componentDidMount() {
+    fetch(process.env.REACT_APP_API_URL+'/chart_data.json',{
+               method: 'get',
+               mode:'cors'})
+    .then(res => res.json())
+    .then((resp_data) => {
+      data.labels = resp_data.pie_chart_data.overall.map(codeTypeCount => codeTypeCount[0])
+      data.datasets[0].data= resp_data.pie_chart_data.overall.map(codeTypeCount => codeTypeCount[1])
+
+    })
+    .catch(console.log)
+  }
 
   render() {
     return (
