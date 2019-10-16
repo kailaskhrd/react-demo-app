@@ -36,9 +36,10 @@ class PieChartCouponCodesStatus extends Component {
                mode:'cors'})
     .then(res => res.json())
     .then((resp_data) => {
-      data.labels = resp_data.pie_chart_data.overall.map(codeTypeCount => codeTypeCount[0])
-      data.datasets[0].data= resp_data.pie_chart_data.overall.map(codeTypeCount => codeTypeCount[1])
-
+      resp_data.pie_chart_data.overall.forEach(function(codeTypeCount) {
+        data.labels.push(codeTypeCount[0]);
+        data.datasets[0].data.push(codeTypeCount[1])
+      });
     })
     .catch(console.log)
   }
